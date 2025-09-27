@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do Fogo ao Prato - Carregando...</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('img/bg.jpg') no-repeat center center/cover;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .loading-container {
+      position: relative;
+      text-align: center;
+      z-index: 10;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      color: #fbbf24;
+      text-transform: uppercase;
+    }
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-top: 6px solid #fbbf24;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    .smoke {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: smokeMove 6s ease-in-out infinite;
+      opacity: 0.5;
+      z-index: 5;
+    }
+    .smoke:nth-child(1) { top: 20%; left: 35%; animation-delay: 0s; }
+    .smoke:nth-child(2) { top: 40%; left: 50%; animation-delay: 2s; }
+    .smoke:nth-child(3) { top: 60%; left: 40%; animation-delay: 4s; }
+    @keyframes smokeMove {
+      0% { transform: scale(0.8) translateY(0); opacity: 0.4; }
+      50% { transform: scale(1.2) translateY(-60px); opacity: 0.2; }
+      100% { transform: scale(1.5) translateY(-120px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="smoke"></div>
+  <div class="smoke"></div>
+  <div class="smoke"></div>
+  <div class="loading-container">
+    <h1>Do Fogo ao Prato</h1>
+    <div class="loader"></div>
+    <p>Preparando o melhor rodízio para você...</p>
+  </div>
+</body>
+</html>
